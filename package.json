@@ -1,0 +1,26 @@
+{
+  "name": "express-todo-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "NODE_ENV=test mocha",
+    "clean": "rimraf db.json"
+  },
+  "keywords": [],
+  "author": "Nicolás Quiroz <nh.quiroz@gmail.com> (nicolasquiroz.com)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "lowdb": "^1.0.0",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.3",
+    "rimraf": "^2.6.1",
+    "supertest": "^3.0.0"
+  }
+}
