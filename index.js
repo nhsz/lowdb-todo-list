@@ -13,7 +13,12 @@ const { PORT = 3000 } = process.env
 const app = express()
 app.use(bodyParser.json())
 
-// CREATE a new task
+/*
+  Method: POST
+  Endpoint: /tasks/
+  Usage: Create a new task
+  Returns: New task
+*/
 app.post('/tasks', (req, res) => {
   const task = req.body
 
@@ -26,12 +31,22 @@ app.post('/tasks', (req, res) => {
   res.status(201).json(task)
 })
 
-// READ all tasks
+/*
+  Method: GET
+  Endpoint: /tasks/
+  Usage: List all tasks
+  Returns: TODO-list
+*/
 app.get('/tasks', (req, res) => {
   res.status(200).json(db.get('tasks'))
 })
 
-// READ a specific task
+/*
+  Method: GET
+  Endpoint: /tasks/{id}
+  Usage: Get a specific task
+  Returns: Task
+*/
 app.get('/tasks/:id', (req, res) => {
   const task = db.get('tasks')
     .find({ id: req.params.id })
@@ -44,7 +59,12 @@ app.get('/tasks/:id', (req, res) => {
   res.status(404).send(`Sorry can't find that!`)
 })
 
-// UPDATE a specific task
+/*
+  Method: PUT
+  Endpoint: /tasks/{id}
+  Usage: Update a specific task
+  Returns: Task
+*/
 app.put('/tasks/:id', (req, res) => {
   const task = req.body
   const id = req.params.id
@@ -57,7 +77,12 @@ app.put('/tasks/:id', (req, res) => {
   res.status(201).json(task)
 })
 
-// DELETE a specific task
+/*
+  Method: DELETE
+  Endpoint: /tasks/{id}
+  Usage: Destroy a specific task
+  Returns: Task
+*/
 app.delete('/tasks/:id', (req, res) => {
   const id = req.params.id
 
